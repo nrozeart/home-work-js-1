@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
@@ -29,10 +31,91 @@ Infinity делать не нужно, однако, в случае если б
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    /**
+      * @param {number} a - число a, которое вводит пользователь.
+      * @param {number} b - число b, которое вводит пользователь.
+      * @param {number} operation - математический знак, который вводит 
+      * пользователь.
+      */
+    const a = +prompt('Введите число a');
+    const b = +prompt('Введите число b');
+    const operation = prompt('Введите математический знак операции');
+
+    /**
+      * Функция вычисляет сумму двух чисел.
+      * @param {number} a - число a, которое вводит пользователь.
+      * @param {number} b - число b, которое вводит пользователь.
+      */
+    function summ(a, b) {
+      console.log(a + b);
+    }
+
+    /**
+     * Функция вычисляет разность двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     */
+    function minus(a, b) {
+      if (a > b) {
+        console.log(a - b);
+      } else if (a < b) {
+        console.log(b - a);
+      } else {
+        console.log(0);
+      }
+    }
+
+    /**
+     * Функция вычисляет произведение двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     */
+    function multiplication(a, b) {
+      console.log(a * b);
+    }
+
+    /**
+     * Функция вычисляет частное двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     */
+    function division(a, b) {
+      console.log(a / b);
+    }
+
+    /**
+       * Функция вычисляет сложение, разность, умножение или деление двух чисел, 
+       * которые вводит пользователь, в зависимости от значения параметра 
+       * operation.
+       * @param {number} a - число a, которое вводит пользователь.
+       * @param {number} b - число b, которое вводит пользователь.
+       * @param {number} operation - математический знак, который вводит 
+       * пользователь.
+       */
+    function mathOperation(a, b, operation) {
+      if (operation === "+") {
+        summ(a, b);
+      }
+      else if (operation === "-") {
+        minus(a, b);
+      }
+      else if (operation === "*") {
+        multiplication(a, b);
+      }
+      else if (operation === "/") {
+        division(a, b);
+      }
+      else {
+        console.log(NaN);
+      }
+    }
+
+    mathOperation(a, b, operation);
+
+  </script>
 </body>
+
 </html>

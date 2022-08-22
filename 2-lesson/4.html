@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо реализовать четыре функции, каждая функция должна принимать по два
@@ -28,10 +30,63 @@
 
 Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    const a = +prompt('Введите число a');
+    const b = +prompt('Введите число b');
+
+    /**
+     * Функция вычисляет сумму двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     */
+    summ(a, b);
+
+    function summ(a, b) {
+      console.log(a + b);
+    }
+
+    /**
+     * Функция вычисляет разность двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     */
+    minus(a, b);
+
+    function minus(a, b) {
+      if (a > b) {
+        console.log(a - b);
+      } else if (a < b) {
+        console.log(b - a);
+      } else {
+        console.log(0);
+      }
+    }
+
+    /**
+     * Функция вычисляет произведение двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     */
+    multiplication(a, b);
+
+    function multiplication(a, b) {
+      console.log(a * b);
+    }
+
+    /**
+     * Функция вычисляет частное двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     */
+    division(a, b);
+
+    function division(a, b) {
+      console.log(a / b);
+    }
+
+  </script>
 </body>
+
 </html>
