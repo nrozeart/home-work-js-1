@@ -45,26 +45,26 @@ Infinity делать не нужно, однако, в случае если б
     const operation = prompt('Введите математический знак операции');
 
     /**
-      * Функция вычисляет сумму двух чисел.
-      * @param {number} a - число a, которое вводит пользователь.
-      * @param {number} b - число b, которое вводит пользователь.
-      */
+     * Функция вычисляет сумму двух чисел.
+     * @param {number} a - число a, которое вводит пользователь.
+     * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
+     */
     function summ(a, b) {
-      console.log(a + b);
+      return a + b;
     }
 
     /**
      * Функция вычисляет разность двух чисел.
      * @param {number} a - число a, которое вводит пользователь.
      * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
      */
     function minus(a, b) {
       if (a > b) {
-        console.log(a - b);
+        return a - b;
       } else if (a < b) {
-        console.log(b - a);
-      } else {
-        console.log(0);
+        return b - a;
       }
     }
 
@@ -72,18 +72,20 @@ Infinity делать не нужно, однако, в случае если б
      * Функция вычисляет произведение двух чисел.
      * @param {number} a - число a, которое вводит пользователь.
      * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
      */
     function multiplication(a, b) {
-      console.log(a * b);
+      return a * b;
     }
 
     /**
      * Функция вычисляет частное двух чисел.
      * @param {number} a - число a, которое вводит пользователь.
      * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
      */
     function division(a, b) {
-      console.log(a / b);
+      return a / b;
     }
 
     /**
@@ -97,19 +99,15 @@ Infinity делать не нужно, однако, в случае если б
        */
     function mathOperation(a, b, operation) {
       if (operation === "+") {
-        summ(a, b);
-      }
-      else if (operation === "-") {
-        minus(a, b);
-      }
-      else if (operation === "*") {
-        multiplication(a, b);
-      }
-      else if (operation === "/") {
-        division(a, b);
-      }
-      else {
-        console.log(NaN);
+        return summ(a, b);
+      } else if (operation === "-") {
+        return minus(a, b);
+      } else if (operation === "*") {
+        return multiplication(a, b);
+      } else if (operation === "/") {
+        return division(a, b);
+      } else {
+        return NaN;
       }
     }
 

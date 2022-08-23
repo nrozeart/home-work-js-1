@@ -36,54 +36,56 @@
     const a = +prompt('Введите число a');
     const b = +prompt('Введите число b');
 
+    summ(a, b);
+
     /**
      * Функция вычисляет сумму двух чисел.
      * @param {number} a - число a, которое вводит пользователь.
      * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
      */
-    summ(a, b);
-
     function summ(a, b) {
-      console.log(a + b);
+      return a + b;
     }
+
+    minus(a, b);
 
     /**
      * Функция вычисляет разность двух чисел.
      * @param {number} a - число a, которое вводит пользователь.
      * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
      */
-    minus(a, b);
-
     function minus(a, b) {
       if (a > b) {
-        console.log(a - b);
-      } else if (a < b) {
-        console.log(b - a);
-      } else {
-        console.log(0);
+        return a - b;
       }
+      return b - a;
     }
+
+    multiplication(a, b);
 
     /**
      * Функция вычисляет произведение двух чисел.
      * @param {number} a - число a, которое вводит пользователь.
      * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
      */
-    multiplication(a, b);
-
     function multiplication(a, b) {
-      console.log(a * b);
+      return a * b;
     }
+
+
+    division(a, b);
 
     /**
      * Функция вычисляет частное двух чисел.
      * @param {number} a - число a, которое вводит пользователь.
      * @param {number} b - число b, которое вводит пользователь.
+     * @returns {number} 
      */
-    division(a, b);
-
     function division(a, b) {
-      console.log(a / b);
+      return a / b;
     }
 
   </script>
