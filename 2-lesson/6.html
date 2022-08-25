@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+  <script>
+    "use strict";
+    // Число яблок, можно пробовать поставить свое целое, положительное число.
+    const applesNumber = 514;
+    let restOf10division = applesNumber % 10;
+    let restOf100division = applesNumber % 100;
+
+    // Получаем от функции одно из слов "стол", "стола" или "столов".
+    const word = declinationOfNumber(restOf10division, restOf100division, "стол", "стола", "столов");
+
+
+    function declinationOfNumber(restOf10division, restOf100division, one, two, five) {
+      if (restOf10division === 1 && restOf100division !== 11) {
+        return one;
+      }
+      if (restOf10division >= 2 && restOf10division <= 3 && restOf100division < 12) {
+        return two;
+      }
+      if (restOf10division >= 2 && restOf10division <= 3 && restOf100division > 14) {
+        return two;
+      }
+      return five;
+    }
+
+    // Выводим корректную строку, например:
+    // "У меня есть 1 стол."
+    // "У меня есть 2 стола."
+    // "У меня есть 5 столов."
+    // При любом целом, положительном числе в applesNumber, строка, которая
+    // выводится в console.log, должна иметь правильное склонение слова "стол".
+    console.log(`У меня есть ${applesNumber} ${word}.`);
+
+  </script>
+</body>
+
+</html>
