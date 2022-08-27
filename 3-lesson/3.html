@@ -31,12 +31,18 @@
       },
     ];
 
+    /* 
+    Вариант решения через 2 функции.
+    
     const decrease15Fn = function (element) {
       element.price = element.price * 85 / 100;
     };
 
-    products.forEach(decrease15Fn);
+    products.forEach(decrease15Fn); */
 
+    products.forEach((element) => {
+      element.price = element.price * 85 / 100;
+    });
     console.log(products);
 
   </script>
