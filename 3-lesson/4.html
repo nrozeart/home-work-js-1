@@ -46,10 +46,55 @@
       },
     ];
 
-    for (let i = 0; i < products.length; i++) {
-      console.log(products[i].photos?.[photos])
-    };
 
+    /**
+     * @param consistPhotos {function}- переменная-функция находит в массиве объекты, 
+     * в которых есть хотя бы одна фотография и выводит новый массив в консоль.
+     * @param product{object} - объект из массива
+     * @returns {massiv} - возвращает массив
+     * */
+    let consistPhotos = products.filter(
+      function (product) {
+        return product.photos !== undefined && product.photos.length >= 1;
+      });
+    console.log(consistPhotos);
+
+
+    /**
+     * Функция сортирует объекты в массиве по свойству price по возрастанию и 
+     * выводит новый массив в консоль.
+     * @param product1 {object} - объект из массива
+     * @param product2 {object} - объект из массива
+     * @returns {massiv} - возвращает массив
+     * */
+    let compareProductsByprice = products.sort(
+      function (product1, product2) {
+        if (product2.price > product1.price) {
+          return -1;
+        }
+        else if (product1.price > product2.price) {
+          return 1;
+        }
+        else {
+          return 0;
+        }
+      });
+    console.log(compareProductsByprice);
+
+    /* Также эту функцию можно записать в таком виде:
+
+    products.sort(function (product1, product2) {
+      if (product2.price > product1.price) {
+        return -1;
+      }
+      else if (product1.price > product2.price) {
+        return 1;
+      }
+      else {
+        return 0;
+      }
+    });
+    console.log(products); */
   </script>
 </body>
 
