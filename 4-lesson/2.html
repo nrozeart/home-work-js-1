@@ -52,7 +52,9 @@
   <script>
     "use strict";
 
-    /* Решение в es5 стиле. 
+    /* 
+    Обычный пост.
+    Решение в es5 стиле. 
     1. Создаем функцию-конструктор PostES5 для поста в социальной сети.
     Данные автора поста и текст поста передаются при создании экземпляра объекта, 
     поэтому передаем в функцию-конструктор параметры автор поста - postAuthorName,
@@ -84,21 +86,25 @@
     /* 6. Применим метод edit.
      */
     PostES5Irina.edit();
+
+    /* 7. Выводим в консоль, видим, что текст поста и дата и время изменения 
+    поста поменялись*/
     console.log(PostES5Irina);
 
 
+    /* ----------------------------------------*/
 
 
-
-
-    /* Решение в es6 стиле.
-        1. Создаем класс PostES5 для поста в социальной сети, внутри которого определяем 
-        свойства автор поста - postAuthorName, текст поста - postText, 
-        дата и время последнего изменения поста - lastEditionDateAndTime. 
-        Данные автора поста и текст поста передаются при создании экземпляра объекта, 
-        поэтому передаем эти параметры в конструктор. Тут же в классе создается метод 
-        edit.
-         */
+    /* 
+    Обычный пост.
+    Решение в es6 стиле.
+    1. Создаем класс PostES5 для поста в социальной сети, внутри которого определяем 
+    свойства автор поста - postAuthorName, текст поста - postText, 
+    дата и время последнего изменения поста - lastEditionDateAndTime. 
+    Данные автора поста и текст поста передаются при создании экземпляра объекта, 
+    поэтому передаем эти параметры в конструктор. Тут же в классе создается метод 
+    edit.
+    */
 
     class PostES6 {
       constructor(postAuthorName, postText) {
@@ -126,6 +132,92 @@
     PostES6Vanessa.edit();
     console.log(PostES6Vanessa);
 
+
+
+    /* ----------------------------------------*/
+
+
+    /* 
+    Закрепленный пост.
+    Решение в es5 стиле. 
+        1. Создаем функцию-конструктор AttachedPostES5 для закрепленного 
+        поста в социальной сети.
+        Данные автора поста и текст поста передаются при создании экземпляра объекта, 
+        поэтому передаем их в функцию-конструктор в качестве параметров. Они 
+        наследуются от обычного поста по функции PostES5. Закрепленный пост 
+        имеет свойство `highlighted`, в котором по умолчанию лежит значение 
+        false (это обозначает, будет ли наш закрепленный пост подсвечен).
+        */
+    function AttachedPostES5(postAuthorName, postText) {
+      PostES5.call(this, postAuthorName, postText);
+      this.highlighted = false;
+    }
+
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+    /* 2. Создаем метод makeTextHighlighted, который сделает так, чтобы наш 
+    пост стал подсвеченным (будет менять свойство `highlighted`).
+         */
+    AttachedPostES5.prototype.makeTextHighlighted = function () {
+      this.highlighted = true;
+    }
+
+    /* 3. Создадим пост-объект, указав имя автора и текст поста, после чего 
+    выведем пост-объект в консоль.
+         */
+    const AttachedPostES51 = new AttachedPostES5('Mary', 'какой-то текст поста');
+    console.log(AttachedPostES51);
+
+    /* 4. Применим методы edit и makeTextHighlighted.
+     */
+    AttachedPostES51.edit();
+    AttachedPostES51.makeTextHighlighted();
+
+    /* 5. Выводим в консоль, видим, что текст поста , дата и время изменения 
+    поменялись, а также текст стал подсвеченным.
+     */
+    console.log(AttachedPostES51);
+
+    /* 
+       Закрепленный пост.
+       Решение в es6 стиле. 
+           1. Создаем класс AttachedPostES5 для закрепленного 
+           поста в социальной сети.
+           Данные автора поста и текст поста передаются при создании экземпляра объекта, 
+           поэтому передаем их в функцию-конструктор в качестве параметров. Они 
+           наследуются от обычного поста по функции PostES5. Закрепленный пост 
+           имеет свойство `highlighted`, в котором по умолчанию лежит значение 
+           false (это обозначает, будет ли наш закрепленный пост подсвечен).
+           Здесь же оздаем метод makeTextHighlighted, который сделает так, 
+           чтобы наш пост стал подсвеченным (будет менять свойство `highlighted`)
+           */
+
+    class AttachedPostES6 extends PostES6 {
+      constructor(postAuthorName, postText) {
+        super(postAuthorName, postText);
+        this.highlighted = false;
+      }
+      makeTextHighlighted() {
+        this.highlighted = true;
+      }
+    }
+
+    /* 2. Создадим пост-объект, указав имя автора и текст поста, после чего 
+    выведем пост-объект в консоль.
+         */
+    const AttachedPostES61 = new AttachedPostES6('Nick', 'текст поста Ника');
+    console.log(AttachedPostES61);
+
+    /* 3. Применим методы edit и makeTextHighlighted.
+     */
+    AttachedPostES61.edit();
+    AttachedPostES61.makeTextHighlighted();
+
+    /* 4. Выводим в консоль, видим, что текст поста , дата и время изменения 
+    поменялись, а также текст стал подсвеченным.
+     */
+    console.log(AttachedPostES61);
   </script>
 </body>
 
