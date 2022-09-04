@@ -27,15 +27,14 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
   <script>
     "use strict";
     // Число яблок, можно пробовать поставить свое целое, положительное число.
-    const applesNumber = 514;
-    let restOf10division = applesNumber % 10;
-    let restOf100division = applesNumber % 100;
+    const applesNumber = 819;
 
     // Получаем от функции одно из слов "стол", "стола" или "столов".
-    const word = declinationOfNumber(restOf10division, restOf100division, "стол", "стола", "столов");
+    const word = declinationOfNumber(applesNumber, "стол", "стола", "столов");
 
-
-    function declinationOfNumber(restOf10division, restOf100division, one, two, five) {
+    function declinationOfNumber(count, one, two, five) {
+      const restOf10division = count % 10;
+      const restOf100division = count % 100;
       if (restOf10division === 1 && restOf100division !== 11) {
         return one;
       }

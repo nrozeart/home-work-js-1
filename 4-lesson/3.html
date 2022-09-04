@@ -34,7 +34,7 @@
     "use strict";
 
     function getDigitsOfNumber(userNumber) {
-      if (userNumber >= 0 && userNumber < 1000) {
+      if (Number.isInteger(userNumber) && userNumber >= 0 && userNumber < 1000) {
         this.units = userNumber % 10;
         this.dozens = Math.trunc(userNumber / 10) % 10;;
         this.hundreds = Math.trunc(userNumber / 100) % 100;
@@ -46,7 +46,7 @@
 
     const userNumber1 = new getDigitsOfNumber(489);
     const userNumber2 = new getDigitsOfNumber(521);
-    const userNumber3 = new getDigitsOfNumber(1000);
+    const userNumber3 = new getDigitsOfNumber('привет');
 
     console.log(userNumber1);
     console.log(userNumber2);

@@ -57,28 +57,24 @@
     Решение в es5 стиле. 
     1. Создаем функцию-конструктор PostES5 для поста в социальной сети.
     Данные автора поста и текст поста передаются при создании экземпляра объекта, 
-    поэтому передаем в функцию-конструктор параметры автор поста - postAuthorName,
-     текст поста - postText, также записываем в свойства - дату и время 
+    поэтому передаем в функцию-конструктор параметры автор поста - authorName,
+     текст поста - text, также записываем в свойства - дату и время 
      последнего изменения поста - lastEditionDateAndTime. 
     */
-    function PostES5(postAuthorName, postText) {
-      this.postAuthorName = postAuthorName;
-      this.postText = postText;
-      this.lastEditionDateAndTime = lastEditionDateAndTime;
+    function PostES5(authorName, text) {
+      this.authorName = authorName;
+      this.text = text;
+      this.lastEditionDateAndTime = new Date();
     }
 
     /* 2. Создаем метод edit, который будет менять текст поста
      */
     PostES5.prototype.edit = function () {
-      this.postText = 'this.postText + новое изменение';
-      this.lastEditionDateAndTime = 'новые дата и время последнего изменения поста';
+      this.text = 'новый текст';
+      this.lastEditionDateAndTime = new Date();
     }
 
-    /* 4. Зададим пока дату и время нового изменения вручную.
-     */
-    let lastEditionDateAndTime = '15 июня 2022 года 20:31';
-
-    /* 5. Создадим пост-объект, указав имя автора и текст поста.
+    /* 4. Создадим пост-объект, указав имя автора и текст поста.
      */
     const PostES5Irina = new PostES5('Irina', 'текст поста');
     console.log(PostES5Irina);
@@ -99,7 +95,7 @@
     Обычный пост.
     Решение в es6 стиле.
     1. Создаем класс PostES5 для поста в социальной сети, внутри которого определяем 
-    свойства автор поста - postAuthorName, текст поста - postText, 
+    свойства автор поста - authorName, текст поста - text, 
     дата и время последнего изменения поста - lastEditionDateAndTime. 
     Данные автора поста и текст поста передаются при создании экземпляра объекта, 
     поэтому передаем эти параметры в конструктор. Тут же в классе создается метод 
@@ -107,27 +103,23 @@
     */
 
     class PostES6 {
-      constructor(postAuthorName, postText) {
-        this.postAuthorName = postAuthorName;
-        this.postText = postText;
-        this.lastEditionDateAndTimePostES6 = lastEditionDateAndTimePostES6;
+      constructor(authorName, text) {
+        this.authorName = authorName;
+        this.text = text;
+        this.lastEditionDateAndTime = new Date();
       }
       edit() {
-        this.postText = 'this.postText + новое изменение';
-        this.lastEditionDateAndTimePostES6 = 'новые дата и время последнего изменения поста';
+        this.text = 'новый пост';
+        this.lastEditionDateAndTime = new Date();
       }
     }
 
-    /* 2. Зададим пока дату и время нового изменения вручную.
-     */
-    let lastEditionDateAndTimePostES6 = '1 мая 2020 года 10:07';
-
-    /* 3. Создадим пост-объект, указав имя автора и текст поста.
+    /* 2. Создадим пост-объект, указав имя автора и текст поста.
     */
     const PostES6Vanessa = new PostES6('Vanessa', 'другой текст поста');
     console.log(PostES6Vanessa);
 
-    /* 4. Применим метод edit.
+    /* 3. Применим метод edit.
    */
     PostES6Vanessa.edit();
     console.log(PostES6Vanessa);
@@ -148,8 +140,8 @@
         имеет свойство `highlighted`, в котором по умолчанию лежит значение 
         false (это обозначает, будет ли наш закрепленный пост подсвечен).
         */
-    function AttachedPostES5(postAuthorName, postText) {
-      PostES5.call(this, postAuthorName, postText);
+    function AttachedPostES5(authorName, text) {
+      PostES5.call(this, authorName, text);
       this.highlighted = false;
     }
 
@@ -161,6 +153,7 @@
          */
     AttachedPostES5.prototype.makeTextHighlighted = function () {
       this.highlighted = true;
+      this.lastEditionDateAndTime = new Date();
     }
 
     /* 3. Создадим пост-объект, указав имя автора и текст поста, после чего 
@@ -194,12 +187,11 @@
            */
 
     class AttachedPostES6 extends PostES6 {
-      constructor(postAuthorName, postText) {
-        super(postAuthorName, postText);
-        this.highlighted = false;
-      }
+      highlighted = false;
+
       makeTextHighlighted() {
         this.highlighted = true;
+        this.lastEditionDateAndTime = new Date();
       }
     }
 

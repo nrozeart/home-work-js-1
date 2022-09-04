@@ -53,7 +53,7 @@
      * @param product{object} - объект из массива
      * @returns {array} - возвращает массив
      * */
-    let consistPhotos = products.filter(
+    const consistPhotos = products.filter(
       function (product) {
         return product.photos !== undefined && product.photos.length >= 1;
       });
@@ -61,13 +61,14 @@
 
 
     /**
+     * Вариант решения 1.
      * Функция сортирует объекты в массиве по свойству price по возрастанию и 
      * выводит новый массив в консоль.
      * @param product1 {object} - объект из массива
      * @param product2 {object} - объект из массива
      * @returns {array} - возвращает массив
-     * */
-    let compareProductsByprice = products.sort(
+     * 
+    const compareProductsByprice = products.sort(
       function (product1, product2) {
         if (product2.price > product1.price) {
           return -1;
@@ -80,8 +81,12 @@
         }
       });
     console.log(compareProductsByprice);
+    или
+    console.log(products);
 
-    /* Также эту функцию можно записать в таком виде:
+*/
+
+    /* Вариант 2.
 
     products.sort(function (product1, product2) {
       if (product2.price > product1.price) {
@@ -95,6 +100,13 @@
       }
     });
     console.log(products); */
+
+    /* Решение от преподавателя:
+    */
+    products.sort((product1, product2) => product1.price - product2.price);
+
+    console.log(products);
+
   </script>
 </body>
 

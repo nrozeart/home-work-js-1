@@ -24,27 +24,27 @@
 
     /* Решение в es5 стиле.
        1. Создаем функцию - конструктор для продукта    */
-    function ProductES5(productName, productPrice) {
-      this.productName = productName;
-      this.productPrice = productPrice;
+    function ProductES5(name, price) {
+      this.name = name;
+      this.price = price;
     }
 
     /*  Создаем продукт-объект от нашей базовой функции - конструктора 
         ProductES5, передаем в нее параметры: название продукта - dress и цену 
         продукта 7500. Выводим в консоль наш продукт-объект.    */
-    const ProductES5dress = new ProductES5('dress', 7500);
-    console.log(ProductES5dress);
+    const productES5dress = new ProductES5('dress', 7500);
+    console.log(productES5dress);
 
     /*  Создаем метод `make25Discount`, который уменьшает стоимость 
     продукта на 25%.    */
     ProductES5.prototype.make25Discount = function () {
-      this.productPrice = this.productPrice * 75 / 100;
-    }
+      this.price = this.price * 75 / 100;
+    };
 
     /*  Применяем метод `make25Discount`и выводим в консоль новое значение 
     нашего продукта-объекта.    */
-    ProductES5dress.make25Discount();
-    console.log(ProductES5dress);
+    productES5dress.make25Discount();
+    console.log(productES5dress);
 
 
     //*-----------------------------------------------------------------
@@ -57,25 +57,25 @@
       Тут просто решение, независимое от верхнего примера.
       1. Создаем класс для продукта (и метод там же)    */
     class ProductES6 {
-      constructor(productName, productPrice) {
-        this.productName = productName;
-        this.productPrice = productPrice;
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
       }
       make25Discount() {
-        this.productPrice = this.productPrice * 75 / 100;
+        this.price = this.price * 75 / 100;
       }
     }
 
     /*  2. Создаем продукт-объект, передаем в нее параметры: название 
     продукта - skirt и цену продукта 5500.    */
-    const ProductES6dress = new ProductES6('skirt', 5500);
+    const productES6dress = new ProductES6('skirt', 5500);
 
     /*  3.Выводим в консоль наш продукт-объект.*/
-    console.log(ProductES6dress);
+    console.log(productES6dress);
 
-    ProductES6dress.make25Discount();
+    productES6dress.make25Discount();
 
-    console.log(ProductES6dress);
+    console.log(productES6dress);
 
   </script>
 </body>
