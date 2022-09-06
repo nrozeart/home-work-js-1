@@ -60,7 +60,7 @@
     */
     document.addEventListener('DOMContentLoaded', () => {
       console.log('все теги прогрузились');
-    })
+    });
 
     /*
     2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все
@@ -68,7 +68,7 @@
     */
     window.addEventListener('load', () => {
       console.log('страница загрузилась');
-    })
+    });
 
     /*
     3. При клике на какой-либо тег на странице в консоль должно выводиться
@@ -79,12 +79,11 @@
     которому был совершен клик.
     Необходимо использовать делегирование.
     */
-    let yesOrNo = 'string';
     document.addEventListener('click', event => {
+      let yesOrNo = 'string';
       if (event.target.classList.contains('super_element')) {
         yesOrNo = "присутствует";
-      }
-      else {
+      } else {
         yesOrNo = "отсутствует";
       }
       console.log(`Класс "super-element" ${yesOrNo} в элементе "${event.target.tagName.toLowerCase()}".`);
@@ -106,15 +105,13 @@
     Если клик был не по кнопке, то ничего выводить не нужно.
     Необходимо использовать делегирование.
      */
-    function showButtonText() {
+    const ulEl = document.querySelector('ul');
+    ulEl.addEventListener('click', () => {
       if (event.target.tagName !== 'BUTTON') {
         return;
       }
       console.log(event.target.textContent);
-    };
-
-    const ulEl = document.querySelector('ul');
-    ulEl.addEventListener('click', showButtonText);
+    });
 
 
     /*

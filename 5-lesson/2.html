@@ -58,7 +58,7 @@
      */
     const menuEl = document.querySelector('.menu');
     console.log(menuEl);
-    menuEl.classList.toggle('dropdown-menu');
+    menuEl.classList.remove('dropdown-menu');
 
     /*
     4. Используя метод insertAdjacentHTML добавьте после div'a с классом
@@ -70,7 +70,7 @@
     const addition = `
       <a href="#">link</a> 
     `;
-    divEl.insertAdjacentHTML("afterend", addition)
+    divEl.insertAdjacentHTML("afterend", addition);
 
 
     /*
@@ -84,7 +84,9 @@
     6. Добавьте атрибут data-dd со значением 3 элементу у которого существует
     атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
      */
-    const elem = document.querySelector('[aria-labelledby="dropdownMenuButton"]');
+    const elem = document.querySelector(
+      '[aria-labelledby="dropdownMenuButton"]'
+    );
     elem.dataset.dd = "3";
     console.log(elem);
 
@@ -102,13 +104,11 @@
     Атрибут "class" содержит значение "btn btn-secondary dropdown-toggle"
      */
 
-    const btnEls = document.querySelectorAll('.btn');
+    const btnEls = document.querySelectorAll('.btn.dropdown-toggle');
     btnEls.forEach((btnEls1) => {
-      if (btnEls1.classList.contains('dropdown-toggle')) {
-        const attrs = btnEls1.attributes; // получаем коллекцию атрибутов
-        for (let i = 0; i < attrs.length; i++) {
-          console.log(`Атрибут ${attrs[i].name} содержит значение ${attrs[i].value}`);
-        }
+      const attrs = btnEls1.attributes; // получаем коллекцию атрибутов
+      for (let i = 0; i < attrs.length; i++) {
+        console.log(`Атрибут ${attrs[i].name} содержит значение ${attrs[i].value}`);
       }
     });
 
