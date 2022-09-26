@@ -39,7 +39,7 @@
 
     <div class="text">Уверен, ты справишься с этим заданием!</div>
 
-    <input class='input' type="range" min="20" max="100" step="1">
+    <input class='input' type="range" min="20" max="100" value="30" step="1">
     <div id="inputDiv">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, expedita.
     </div>
@@ -67,10 +67,15 @@
     console.log(dataAtt.dataset.text); */
 
     const link = document.querySelector('.nav-tabs');
+    const textEl = document.querySelector('.text');
+
     link.addEventListener('click', event => {
-      document.querySelector('.nav-link.active').classList.remove('active');
-      event.target.classList.add('active');
-      document.querySelector('.text').textContent = panelText[event.target.closest('li').dataset.text];
+      if (event.target.classList.contains('nav-link')) {
+        document.querySelector('.nav-link.active').classList.remove('active');
+        event.target.classList.add('active');
+        textEl.textContent = panelText[event.target.closest('li').dataset.text];
+      }
+      return;
     });
 
 
@@ -85,7 +90,6 @@
 
     console.log(input);
     console.log(inputDiv);
-
 
     input.addEventListener('input', () => {
       inputDiv.style.fontSize = `${input.value}px`;

@@ -49,12 +49,12 @@
       /**
        * @returns {string} html-разметка для товара
        */
-      getProductMarkup(product) {
+      getProductMarkup() {
         return `
         <div class="product">
-            <div>${product.name}</div>
-            <img src="${product.imageUrl}" alt="picture" height="150">
-            <div>Цена: <span>${product.price}</span> р.</div>
+            <div>${this.name}</div>
+            <img src="${this.imageUrl}" alt="picture" height="150">
+            <div>Цена: <span>${this.price}</span> р.</div>
             <a href="https://example.com/producs/">Подробнее</a>
         </div>
       `;
@@ -84,9 +84,9 @@
 
     document.querySelector('header').addEventListener('click', event => {
       if (!event.currentTarget.classList.contains('.menuButton')) {
-        productsEl.innerHTML = products[event.target.dataset.type].map(product => product.getProductMarkup(product));
+        productsEl.innerHTML = products[event.target.dataset.type]
+          .map((product) => product.getProductMarkup()).join('');
       }
-      return;
     });
 
 

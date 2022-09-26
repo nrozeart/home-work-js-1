@@ -24,14 +24,13 @@
      * @return {Rectangle}
      */
     function Rectangle(width, height) {
-      return {
-        width,
-        height,
-        getArea() {
-          return this.height * this.width
-        }
-      }
+      this.width = width;
+      this.height = height;
     }
+
+    Rectangle.prototype.getArea = function () {
+      return this.height * this.width
+    };
 
     const r = new Rectangle(10, 20);
     console.log(r.width); // 10
